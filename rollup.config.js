@@ -8,6 +8,7 @@ const commonjs = require("@rollup/plugin-commonjs");
 const typescript = require("@rollup/plugin-typescript");
 const dts = require("rollup-plugin-dts");
 const packageJson = require("./package.json");
+const postCSS = require("rollup-plugin-postcss");
 
 const config = [
   {
@@ -25,6 +26,11 @@ const config = [
       },
     ],
     plugins: [
+      postCSS({
+        modules: true,
+        minimize: true,
+        extract: true,
+      }),
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),

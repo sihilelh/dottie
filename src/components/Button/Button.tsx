@@ -1,9 +1,5 @@
 import React from "react";
 
-export interface ButtonProps {
-  label: "";
-}
-
-export default function Button(props: ButtonProps) {
-  return <div>Button</div>;
+export default function Button(props: React.HTMLAttributes<HTMLButtonElement>) {
+  return <button>{props.children}</button>;
 }
